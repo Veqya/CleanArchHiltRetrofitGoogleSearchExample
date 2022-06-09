@@ -8,7 +8,7 @@ import retrofit2.http.Headers
 
 import retrofit2.http.Path
 
-interface GoogleSearchApiService {
+interface SearchApiService {
     //i set  query size 50
     @Headers(
         "X-User-Agent: mobile",

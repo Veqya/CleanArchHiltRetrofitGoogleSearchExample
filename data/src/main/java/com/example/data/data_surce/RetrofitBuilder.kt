@@ -1,6 +1,6 @@
 package com.example.data.data_surce
 
-import com.example.taskgooglesearch.data.data_surce.GoogleSearchApiService
+import com.example.taskgooglesearch.data.data_surce.SearchApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import tech.thdev.network.flowcalladapterfactory.FlowCallAdapterFactory
@@ -12,5 +12,5 @@ object RetrofitBuilder {
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(FlowCallAdapterFactory())
         .build()
-    val apiService: GoogleSearchApiService = getRetrofit().create(GoogleSearchApiService::class.java)
+    val apiService: SearchApiService = getRetrofit().create(SearchApiService::class.java)
 }
