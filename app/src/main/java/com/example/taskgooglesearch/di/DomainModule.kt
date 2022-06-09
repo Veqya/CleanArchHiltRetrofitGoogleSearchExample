@@ -9,7 +9,7 @@ import dagger.hilt.android.components.ViewModelComponent
 
 @InstallIn(ViewModelComponent::class)
 @Module
-class DomainModule {
+object DomainModule {
     @Provides
     fun provideGetSearchModelUseCase(searchRepository: SearchRepository) =
         GetSearchModelUseCase(searchRepository)
