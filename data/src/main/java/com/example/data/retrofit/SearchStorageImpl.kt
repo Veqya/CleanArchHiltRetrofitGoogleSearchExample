@@ -27,5 +27,5 @@ class SearchStorageImpl(private val api: GoogleSearchApiService) : SearchStorage
             emit(SearchModel(searchResultList))
         }
     }.flowOn(Dispatchers.IO)
-    override   fun getSearchModel(searchText: String, requestLimits: Int): Flow<SearchModel>  = mapListToRepo(api.getGoogleSearchModel(searchText, requestLimits))
+    override   fun getSearchModel(searchText: String, requestLimits: Int): Flow<SearchModel>  = mapListToRepo(api.getGoogleSearchModel(searchText))
 }

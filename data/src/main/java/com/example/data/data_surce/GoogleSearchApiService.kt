@@ -9,17 +9,16 @@ import retrofit2.http.Headers
 import retrofit2.http.Path
 
 interface GoogleSearchApiService {
-    //max query size is 30
+    //i set  query size 50
     @Headers(
         "X-User-Agent: mobile",
         "X-Proxy-Location: EU",
         "X-RapidAPI-Key: ab57009ce6msh005bde61a3e4107p1526e7jsnde809264bc83",
         "X-RapidAPI-Host: google-search3.p.rapidapi.com"
     )
-    @GET("api/v1/search/q={searchText}&num={requestLimits}")
+    @GET("api/v1/search/q={searchText}&num=50")
       fun getGoogleSearchModel(
-        @Path("searchText") searchText: String,
-        @Path("requestLimits") requestLimits: Int
+        @Path("searchText") searchText: String
     ): Flow<SearchModelUI>
 
 }
