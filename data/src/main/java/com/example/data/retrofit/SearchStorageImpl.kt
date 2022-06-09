@@ -12,17 +12,20 @@ import kotlinx.coroutines.flow.flowOn
 
 
 class SearchStorageImpl(private val api: GoogleSearchApiService) : SearchStorage {
-    override fun getSearchListData(searchText: String, requestLimits: Int): Flow<SearchModel> = flow {
-        val searchModel = api.getGoogleSearchModel(searchText, requestLimits)
-        val searchResultsUIList = searchModel.searchResultsUIList
-        val searchModelResultList = searchResultsUIList.map { searchResultUI ->
-            SearchResult(
-                title = searchResultUI.title,
-                link = searchResultUI.link,
-                description = searchResultUI.description
-            )
-        }
-        emit(SearchModel(searchModelResultList))
-    }.flowOn(Dispatchers.IO)
 
+
+    private fun mapListToRepo(searchModelUI: Flow<SearchModelUI>): Flow<SearchModel> = flow {
+        searchModelUI.collect { searchModelUI ->
+            val searchResultsUIList = searchModelUI.searchResultsUIList
+            val searchResultList = searchResultsUIList.map {
+                SearchResult(
+                    title = it.title,
+                    link = it.link,
+                    description = it.description
+                )
+            }
+            emit(SearchModel(searchResultList))
+        }
+    }.flowOn(Dispatchers.IO)
+    override   fun getSearchModel(searchText: String, requestLimits: Int): Flow<SearchModel>  = mapListToRepo(api.getGoogleSearchModel(searchText, requestLimits))
 }

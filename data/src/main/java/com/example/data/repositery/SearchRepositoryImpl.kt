@@ -6,7 +6,6 @@ import com.example.taskgooglesearch.domain.repositery.SearchRepository
 import kotlinx.coroutines.flow.Flow
 
 class SearchRepositoryImpl(private val searchStorage: SearchStorage) : SearchRepository {
-    override fun getSearchList(searchText: String, requestLimits: Int): Flow<SearchModel> =
-        searchStorage.getSearchListData(searchText, requestLimits)
-
+    override   fun getSearchModel(searchText: String, requestLimits: Int): Flow<SearchModel> =
+        searchStorage.getSearchModel(searchText, requestLimits)
 }

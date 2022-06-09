@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 
 interface SearchRepository {
-    fun getSearchList(searchText:String="",requestLimits:Int=0): Flow<SearchModel>
+      fun getSearchModel(searchText:String="", requestLimits:Int=0): Flow<SearchModel>
 }
