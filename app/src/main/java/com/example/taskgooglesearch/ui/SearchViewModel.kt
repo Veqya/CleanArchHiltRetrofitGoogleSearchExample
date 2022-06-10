@@ -23,14 +23,17 @@ class SearchViewModel @Inject constructor(private val useCases: UseCases) : View
     fun searchData(searchText: String) {
         _searchModelLiveDataState.postValue(Response.Loading)
         viewModelScope.launch(Dispatchers.IO) {
-            useCases.getSearchModelUseCase.execute(searchText).collect { searchModel ->
-                try {
-                    _searchModelLiveData.postValue(searchModel)
-                    _searchModelLiveDataState.postValue(Response.Success(true))
-                } catch (e: Exception) {
-                    _searchModelLiveDataState.postValue(Response.Failure(e.message.toString()))
+            _searchModelLiveDataState.postValue(Response.Loading)
+            try {
+                useCases.getSearchModelUseCase.execute(searchText).collect { searchModel ->
+                        _searchModelLiveData.postValue(searchModel)
+                        _searchModelLiveDataState.postValue(Response.Success(true))
                 }
+            }catch (e: Exception) {
+                _searchModelLiveDataState.postValue(Response.Failure(e.message.toString()))
+                _searchModelLiveDataState.postValue(Response.Success(true))
             }
+
         }
     }
 }

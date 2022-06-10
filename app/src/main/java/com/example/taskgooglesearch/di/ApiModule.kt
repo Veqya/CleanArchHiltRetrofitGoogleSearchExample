@@ -17,6 +17,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 object ApiModule {
+
     @Provides
     fun providesBaseUrl() : String = "https://google-search3.p.rapidapi.com/"
 

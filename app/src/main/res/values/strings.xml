@@ -1,5 +1,6 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">TaskGoogle Search</string>
     <string name="search_here">Search Here…</string>
-    <string name="test_description"><![CDATA[Elon Musk - Wikipediahttps://en.wikipedia.org › wiki › Elon_Muskhttps://en.wikipedia.org › wiki › Elon_MuskElon Reeve Musk FRS is a business magnate and investor. He is the founder, CEO, and Chief Engineer at SpaceX; angel investor, CEO, and Product Architect of ...Family: Musk familyRelatives: Tosca Musk (sister); ‎Kimbal Musk‎ ...‎Title: Founder, CEO, and Chief Engineer of Sp...‎Education: University of Pennsylvania (‎BS‎, ‎BA‎)‎‎Justine Musk · ‎Maye Musk · ‎Kimbal Musk · ‎Tosca Musk]]></string>
+    <string name="test_description" tools:ignore="TypographyEllipsis"><![CDATA[Elon Musk - Wikipediahttps://en.wikipedia.org › wiki › Elon_Muskhttps://en.wikipedia.org › wiki › Elon_MuskElon Reeve Musk FRS is a business magnate and investor. He is the founder, CEO, and Chief Engineer at SpaceX; angel investor, CEO, and Product Architect of ...Family: Musk familyRelatives: Tosca Musk (sister); ‎Kimbal Musk‎ ...‎Title: Founder, CEO, and Chief Engineer of Sp...‎Education: University of Pennsylvania (‎BS‎, ‎BA‎)‎‎Justine Musk · ‎Maye Musk · ‎Kimbal Musk · ‎Tosca Musk]]></string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

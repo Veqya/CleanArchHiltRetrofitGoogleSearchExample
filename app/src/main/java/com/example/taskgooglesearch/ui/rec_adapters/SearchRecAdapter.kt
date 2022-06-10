@@ -1,4 +1,4 @@
-package com.example.taskgooglesearch.ui
+package com.example.taskgooglesearch.ui.rec_adapters
 
 import android.view.LayoutInflater
 
