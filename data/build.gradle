@@ -3,6 +3,11 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
 }
+def BASE_URL = "$Base_Url" ?: "Base_Url not found "
+def X_RAPID_API_KEY = "$X_Rapid_API_KEY" ?: "Api key not found "
+def X_PROXY_LOCATION = "$X_Proxy_Location" ?: "X_Proxy_Location not found "
+def X_RAPID_API_HOST = "$X_Rapid_API_HOST" ?: "X_Rapid_API_HOST not found "
+def STRING = 'String'
 
 android {
     compileSdk 32
@@ -13,6 +18,13 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        each { type ->
+            type.buildConfigField STRING, "Base_Url",BASE_URL
+            type.buildConfigField STRING, "X_Rapid_API_KEY",X_RAPID_API_KEY
+            type.buildConfigField STRING, "X_Rapid_API_HOST",X_RAPID_API_HOST
+            type.buildConfigField STRING, "X_Proxy_Location",X_PROXY_LOCATION
+        }
     }
 
     buildTypes {
