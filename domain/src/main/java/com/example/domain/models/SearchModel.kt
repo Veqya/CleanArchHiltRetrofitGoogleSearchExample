@@ -11,5 +11,5 @@ data class SearchModel(
     val image_results: List<Any>,
     val total: Int,
     val ts: Double,*/
-    var searchResults: List<SearchResult>
+    val searchResults: List<SearchResult> ?=null
 )

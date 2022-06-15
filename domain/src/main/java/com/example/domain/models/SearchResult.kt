@@ -5,7 +5,7 @@ data class SearchResult(
    /* val additional_links: List<AdditionalLink>,
     val cite: Cite,
     val g_review_stars: String,*/
-    var title: String="",
-    var link: String="",
-    var description: String=""
+    val title: String?=null,
+    val link: String?=null,
+    val description: String?=null
 )

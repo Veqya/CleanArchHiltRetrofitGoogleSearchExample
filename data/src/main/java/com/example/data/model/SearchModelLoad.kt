@@ -3,7 +3,7 @@ package com.example.taskgooglesearch.data.model
 import com.google.gson.annotations.SerializedName
 
 
-data class SearchModelUI(
+data class SearchModelLoad(
     @SerializedName("results")
-    var searchResultsUIList: List<SearchResultUI>
+    val searchResultsUIList: List<SearchResultLoad>?=null
 )

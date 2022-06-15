@@ -8,13 +8,13 @@ import com.example.taskgooglesearch.databinding.SearchItemBinding
 import com.example.taskgooglesearch.domain.models.SearchResult
 
 class SearchRecAdapter(
-    private val searchResultlList: List<SearchResult>,
+    private val searchResultlList: List<SearchResult>?=null,
     private val onItemClick: (webSiteLink: String) -> Unit
 
 ) : RecyclerView.Adapter<SearchRecAdapter.SearchViewHolder>() {
 
 
-    override fun getItemCount(): Int = searchResultlList.size
+    override fun getItemCount(): Int = searchResultlList?.size ?: 0
 
     inner class SearchViewHolder(val binding: SearchItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -46,7 +46,7 @@ class SearchRecAdapter(
 
 
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
-        val tempSearchModel = searchResultlList.get(position)
-        holder.bind(tempSearchModel)
+        val tempSearchModel = searchResultlList?.get(position)
+        tempSearchModel?.let { holder.bind(it) }
     }
 }

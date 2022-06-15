@@ -23,7 +23,7 @@ class MainFragment : Fragment() {
     val viewModel: SearchViewModel by viewModels()
     private lateinit var recAdapter: SearchRecAdapter
     private lateinit var recyclerView: RecyclerView
-private lateinit var binding:FragmentMainBinding
+    private lateinit var binding: FragmentMainBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,10 +51,11 @@ private lateinit var binding:FragmentMainBinding
 
         })
     }
+
     private fun observeModelLiveData() {
         viewModel.modelLiveData.observe(viewLifecycleOwner) { result ->
             val tempResList = result.searchResults
-            recAdapter = SearchRecAdapter(tempResList){
+            recAdapter = SearchRecAdapter(tempResList) {
                 val action = MainFragmentDirections.actionMainFragmentToWebViewFragment(it)
                 findNavController().navigate(action)
             }
@@ -63,6 +64,7 @@ private lateinit var binding:FragmentMainBinding
             recyclerView.adapter = recAdapter
         }
     }
+
     private fun observemodelLiveDataState() {
         viewModel.modelLiveDataState.observe(viewLifecycleOwner) { response ->
             when (response) {

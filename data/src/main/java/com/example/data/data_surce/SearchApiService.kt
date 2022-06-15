@@ -2,7 +2,7 @@ package com.example.taskgooglesearch.data.data_surce
 
 
 import com.example.data.BuildConfig
-import com.example.taskgooglesearch.data.model.SearchModelUI
+import com.example.taskgooglesearch.data.model.SearchModelLoad
 import kotlinx.coroutines.flow.Flow
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -21,7 +21,7 @@ interface SearchApiService {
     @GET("api/v1/search/q={searchText}&num=50")
       fun getGoogleSearchModel(
         @Path("searchText") searchText: String
-    ): Flow<SearchModelUI>
+    ): Flow<SearchModelLoad>
 
 }
 
